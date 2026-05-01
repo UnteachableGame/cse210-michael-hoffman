@@ -1,0 +1,31 @@
+<Solution>
+  <Folder Name="/csharp-prep/">
+    <Project Path="csharp-prep/Prep1/Prep1.csproj" />
+    <Project Path="csharp-prep/Prep2/Prep2.csproj" />
+    <Project Path="csharp-prep/Prep3/Prep3.csproj" />
+    <Project Path="csharp-prep/Prep4/Prep4.csproj" />
+    <Project Path="csharp-prep/Prep5/Prep5.csproj" />
+  </Folder>
+  <Folder Name="/final/">
+    <Project Path="final/FinalProject/FinalProject.csproj" />
+    <Project Path="final/Foundation1/Foundation1.csproj" />
+    <Project Path="final/Foundation2/Foundation2.csproj" />
+    <Project Path="final/Foundation3/Foundation3.csproj" />
+    <Project Path="final/Foundation4/Foundation4.csproj" />
+  </Folder>
+  <Folder Name="/prepare/">
+    <Project Path="prepare/Learning02/Learning02.csproj" />
+    <Project Path="prepare/Learning03/Learning03.csproj" />
+    <Project Path="prepare/Learning04/Learning04.csproj" />
+    <Project Path="prepare/Learning05/Learning05.csproj" />
+  </Folder>
+  <Folder Name="/prove/">
+    <Project Path="prove/Develop02/Develop02.csproj" />
+    <Project Path="prove/Develop03/Develop03.csproj" />
+    <Project Path="prove/Develop04/Develop04.csproj" />
+    <Project Path="prove/Develop05/Develop05.csproj" />
+  </Folder>
+  <Folder Name="/sandbox/">
+    <Project Path="sandbox/Sandbox/Sandbox.csproj" />
+  </Folder>
+</Solution>
