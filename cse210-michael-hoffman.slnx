@@ -20,6 +20,7 @@
     <Project Path="prepare/Learning05/Learning05.csproj" />
   </Folder>
   <Folder Name="/prove/">
+    <File Path="prove/info.txt" />
     <Project Path="prove/Develop02/Develop02.csproj" />
     <Project Path="prove/Develop03/Develop03.csproj" />
     <Project Path="prove/Develop04/Develop04.csproj" />
