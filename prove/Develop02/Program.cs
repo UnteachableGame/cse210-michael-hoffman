@@ -25,6 +25,8 @@ internal class Program {
          */
 
         bool isQuestionActive = true;
+        String file = "info.txt";
+        Journal j = new Journal();
 
         while (isQuestionActive) {
             Console.WriteLine("Please select one of the following choices: \n" +
@@ -36,35 +38,24 @@ internal class Program {
             String option = Console.ReadLine();
 
             switch (option) {
-                case "write": 
-                    
-                case "display":
-                
-                case "load":
-                
-                case "save":
-                
-                case "quit":
+                case "write": {
+                    Entry e = new Entry("prompt", "response");
+                    j.addEntry(e);
+                    break;
+                } case "display": {
+                    j.display();
+                    break;
+                } case "load": {
+                    j.loadJournal(file);
+                    break;
+                } case "save": {
+                    j.saveJournal(file);
+                    break;
+                } case "quit": {
                     isQuestionActive = false;
                     break;
+                }
             }
         }
-
-        String file = "info.txt";
-        
-        Entry e1 = new Entry("prompt", "response");
-        e1.display();
-        Entry e2 = new Entry("prompt", "response");
-        e2.display();
-        Entry e3 = new Entry("prompt", "response");
-        e3.display();
-        
-        Journal j = new Journal();
-        j.addEntry(e1, e2, e3);
-        j.saveJournal(file);
-        j.display();
-        j.loadJournal(file);
-        
-
     }
 }
