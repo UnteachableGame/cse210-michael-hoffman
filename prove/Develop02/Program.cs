@@ -2,58 +2,59 @@ using Develop02;
 
 internal class Program {
     private static void Main(string[] args) {
-        Console.WriteLine("Hello Develop02 World!");
-        
-        // 1. write
-        // 2. display
-        // 3. save
-        // 4. load
-        // 5. 
-        
-        /* Classes w/ variables & methods
-         Journal
-            entries: List<Entry>
-            
-            addEntry()
-            displayEntries()
-         Entry
-            date
-            prompt
-            response
-            
-            display()
-         */
-
+        Console.WriteLine("Welcome to the Journal Program!");
         bool isQuestionActive = true;
-        String file = "info.txt";
         Journal j = new Journal();
+        List<String> usedPrompts = new();
 
         while (isQuestionActive) {
-            Console.WriteLine("Please select one of the following choices: \n" +
+            Console.WriteLine("Please select one of the following choices: (#)\n" +
                               "1. Write\n" +
                               "2. Display\n" +
                               "3. Load\n" +
                               "4. Save\n" +
                               "5. Quit");
+            Console.Write("What would you like to do? ");
             String option = Console.ReadLine();
 
             switch (option) {
-                case "write": {
-                    Entry e = new Entry("prompt", "response");
-                    j.addEntry(e);
+                case "write" or "1": {
+                    if (usedPrompts.Count != j.Prompts.Count) {
+                        String ranPrompt = null;
+                        for (int i = 0; i < j.Prompts.Count; i++) {
+                            int randomNum = new Random().Next(1, j.Prompts.Count);
+                            ranPrompt = j.Prompts[randomNum - 1];
+                        }
+                        
+                        Console.WriteLine(ranPrompt + " ");
+                        Console.Write(">");
+                    
+                        String response = Console.ReadLine();
+                        Entry e = new Entry(ranPrompt, response);
+                        j.addEntry(e);
+                    
+                        usedPrompts.Add(ranPrompt);
+                    } else {
+                        Console.WriteLine("You have ran out prompts to use!\n");
+                    }
                     break;
-                } case "display": {
+                    
+                } case "display" or "2": {
                     j.display();
                     break;
-                } case "load": {
-                    j.loadJournal(file);
+                    
+                } case "load" or "3": {
+                    j.loadJournal();
                     break;
-                } case "save": {
-                    j.saveJournal(file);
+                    
+                } case "save" or "4": {
+                    j.saveJournal();
                     break;
-                } case "quit": {
+                    
+                } case "quit" or "5": {
                     isQuestionActive = false;
                     break;
+                    
                 }
             }
         }

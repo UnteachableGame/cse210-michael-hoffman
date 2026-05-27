@@ -1,32 +1,93 @@
 ﻿namespace Develop02;
 
 public class Journal {
-    private List<Entry> entries = new ();
+    private List<Entry> entries = new();
+    private List<String> prompts = new();
+    
+    public Journal() {
+        Prompts.Add("If I had one thing I could do over today what would it be?");
+        Prompts.Add("What was the best part of the day?");
+        Prompts.Add("Who was the most interesting person I interacted with today?");
+    }
 
     public void addEntry(params Entry[] entries) {
         foreach (Entry entry in entries) {
-            this.entries.Add(entry);
+            Entries.Add(entry);
         }
     }
 
-    public void saveJournal(String file) {
-        using (StreamWriter output = new StreamWriter(file)) {
-            foreach (Entry entry in entries) {
-                output.WriteLine($"{entry.Date}, {entry.Prompt}, \n{entry.Response}");
+    public void saveJournal() {
+        Console.WriteLine("What is the filename?");
+        String fileName = Console.ReadLine();
+
+        fileName = "../../../" + fileName;
+
+        bool isValidFileName = false;
+        while (!isValidFileName) {
+            try {
+                if (Entries.Count != 0) {
+                    using StreamWriter writer = new StreamWriter(fileName);
+                    foreach (Entry entry in Entries) {
+                        writer.WriteLine($"{entry.Date},{entry.Prompt},{entry.Response}");
+                    }
+                    writer.Close();
+                    Console.WriteLine("File has saved successfully!");
+                    
+                } else {
+                    Console.WriteLine("There are no entries to save into the text file!");
+                }
+                isValidFileName = true;
+                
+            } catch (NullReferenceException) {
+                Console.WriteLine("You didn't enter in a valid file name. Please try again!");
+                throw;
             }
         }
     }
 
-    public void loadJournal(String file) {
-        entries = new();
-        foreach (String lines in File.ReadAllLines(file)) {
-            String[] line = lines.Split(",");
-            Entry e = new Entry(line[1], line[2], line[0]);
-            entries.Add(e);
+    public void loadJournal() {
+        Console.WriteLine("What is the filename?");
+        String fileName = Console.ReadLine();
+        
+        fileName = "../../../" + fileName;
+
+        Entries = new (); 
+        bool isValidFileName = false;
+
+        while (!isValidFileName) {
+            try {
+                foreach (var lines in File.ReadAllLines(fileName)) {
+                    String[] line = lines.Split(",");
+                    Entry e = new Entry(line[1], line[2], line[0]);
+                    Entries.Add(e);
+                }
+                Console.WriteLine("File has loaded successfully!");
+
+                isValidFileName = true;
+            } catch (NullReferenceException) {
+                Console.WriteLine("You didn't enter in a valid file name. Please try again!");
+                throw;
+            }
         }
     }
 
     public void display() {
-        Console.Out.WriteLine($"");
+        if (Entries.Count != 0) {
+            foreach (Entry entry in Entries) {
+                Console.Out.WriteLine($"Date: {entry.Date} - Prompt: {entry.Prompt}\n{entry.Response}\n");
+            }
+        } else {
+            Console.WriteLine("There are no entries submitted to the journal currently.");
+        }
+    }
+
+    public List<Entry> Entries {
+        get => entries;
+        set => entries = value;
+    }
+
+    public List<string> Prompts {
+        get => prompts;
+        set => prompts = value;
     }
 }
