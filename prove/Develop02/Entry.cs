@@ -1,38 +1,38 @@
 ﻿namespace Develop02;
 
 public class Entry {
-    private String prompt;
-    private String response;
-    private String date;
+    private String _prompt;
+    private String _response;
+    private String _date;
 
     public Entry(string prompt, string response, string date) {
-        this.prompt = prompt;
-        this.response = response;
-        this.date = date;
+        _prompt = prompt;
+        _response = response;
+        _date = date;
     }
 
     public Entry(String prompt, String response) {
-        this.prompt = prompt;
-        this.response = response;
-        date = DateTime.Now.ToShortDateString();
+        _prompt = prompt;
+        _response = response;
+        _date = DateTime.Now.ToShortDateString();
     }
 
     public string Prompt {
-        get => prompt;
-        set => prompt = value;
+        get => _prompt;
+        set => _prompt = value;
     }
 
     public string Response {
-        get => response;
-        set => response = value;
+        get => _response;
+        set => _response = value;
     }
 
     public string Date {
-        get => date;
-        set => date = value;
+        get => _date;
+        set => _date = value;
     }
 
     public void display() {
-        Console.Out.WriteLine($"{date} {prompt} \n{response}");
+        Console.Out.WriteLine($"{_date} {_prompt} \n{_response}");
     }
 }

@@ -1,8 +1,8 @@
 ﻿namespace Develop02;
 
 public class Journal {
-    private List<Entry> entries = new();
-    private List<String> prompts = new();
+    private List<Entry> _entries = new();
+    private List<String> _prompts = new();
     
     public Journal() {
         Prompts.Add("If I had one thing I could do over today what would it be?");
@@ -10,13 +10,13 @@ public class Journal {
         Prompts.Add("Who was the most interesting person I interacted with today?");
     }
 
-    public void addEntry(params Entry[] entries) {
+    public void AddEntry(params Entry[] entries) {
         foreach (Entry entry in entries) {
             Entries.Add(entry);
         }
     }
 
-    public void saveJournal() {
+    public void SaveJournal() {
         Console.WriteLine("What is the filename?");
         String fileName = Console.ReadLine();
 
@@ -45,7 +45,7 @@ public class Journal {
         }
     }
 
-    public void loadJournal() {
+    public void LoadJournal() {
         Console.WriteLine("What is the filename?");
         String fileName = Console.ReadLine();
         
@@ -71,7 +71,7 @@ public class Journal {
         }
     }
 
-    public void display() {
+    public void Display() {
         if (Entries.Count != 0) {
             foreach (Entry entry in Entries) {
                 Console.Out.WriteLine($"Date: {entry.Date} - Prompt: {entry.Prompt}\n{entry.Response}\n");
@@ -82,12 +82,12 @@ public class Journal {
     }
 
     public List<Entry> Entries {
-        get => entries;
-        set => entries = value;
+        get => _entries;
+        set => _entries = value;
     }
 
     public List<string> Prompts {
-        get => prompts;
-        set => prompts = value;
+        get => _prompts;
+        set => _prompts = value;
     }
 }

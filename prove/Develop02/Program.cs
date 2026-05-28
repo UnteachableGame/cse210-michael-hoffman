@@ -31,7 +31,7 @@ internal class Program {
                     
                         String response = Console.ReadLine();
                         Entry e = new Entry(ranPrompt, response);
-                        j.addEntry(e);
+                        j.AddEntry(e);
                     
                         usedPrompts.Add(ranPrompt);
                     } else {
@@ -40,15 +40,15 @@ internal class Program {
                     break;
                     
                 } case "display" or "2": {
-                    j.display();
+                    j.Display();
                     break;
                     
                 } case "load" or "3": {
-                    j.loadJournal();
+                    j.LoadJournal();
                     break;
                     
                 } case "save" or "4": {
-                    j.saveJournal();
+                    j.SaveJournal();
                     break;
                     
                 } case "quit" or "5": {
