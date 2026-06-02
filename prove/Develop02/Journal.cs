@@ -5,9 +5,11 @@ public class Journal {
     private List<String> _prompts = new();
     
     public Journal() {
-        Prompts.Add("If I had one thing I could do over today what would it be?");
-        Prompts.Add("What was the best part of the day?");
-        Prompts.Add("Who was the most interesting person I interacted with today?");
+        Prompts.Add("How would you spend a week-long vacation if you had the time with no money limit?");
+        Prompts.Add("How would respond to someone who is being aggravating?");
+        Prompts.Add("How were you able to share you charity today? Who was it with?");
+        Prompts.Add("What was the best miracle that happened to you this week?");
+        Prompts.Add("Do you like Apple or Samsung products? Why?");
     }
 
     public void AddEntry(params Entry[] entries) {

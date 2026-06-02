@@ -5,7 +5,6 @@ internal class Program {
         Console.WriteLine("Welcome to the Journal Program!");
         bool isQuestionActive = true;
         Journal j = new Journal();
-        List<String> usedPrompts = new();
 
         while (isQuestionActive) {
             Console.WriteLine("Please select one of the following choices: (#)\n" +
@@ -19,7 +18,7 @@ internal class Program {
 
             switch (option) {
                 case "write" or "1": {
-                    if (usedPrompts.Count != j.Prompts.Count) {
+                    if (j.Prompts.Count != 0) {
                         String ranPrompt = null;
                         for (int i = 0; i < j.Prompts.Count; i++) {
                             int randomNum = new Random().Next(1, j.Prompts.Count);
@@ -32,8 +31,8 @@ internal class Program {
                         String response = Console.ReadLine();
                         Entry e = new Entry(ranPrompt, response);
                         j.AddEntry(e);
-                    
-                        usedPrompts.Add(ranPrompt);
+
+                        j.Prompts.Remove(ranPrompt);
                     } else {
                         Console.WriteLine("You have ran out prompts to use!\n");
                     }
