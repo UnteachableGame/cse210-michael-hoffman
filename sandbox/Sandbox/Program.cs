@@ -26,6 +26,57 @@ public class Program {
     }
 }
 
+public class Vehicle {
+    protected String _name;
+    protected String _make;
+    protected String _model;
+
+    public Vehicle(string name, string make, string model) {
+        _name = name;
+        _make = make;
+        _model = model;
+    }
+
+    public string Name {
+        get => _name;
+        set => _name = value;
+    }
+
+    public string Make {
+        get => _make;
+        set => _make = value;
+    }
+
+    public string Model {
+        get => _model;
+        set => _model = value;
+    }
+
+    protected void Drive() {
+        Console.WriteLine("Driving!");
+    }
+}
+
+public class Car : Vehicle {
+    protected List<String> _truckItems;
+    protected int _cupHolders;
+
+    public Car(string name, string make, string model, int cupHolders) : base(name, make, model) {
+        _truckItems = new List<string>();
+        _cupHolders = cupHolders;
+    }
+
+    public List<string> TruckItems {
+        get => _truckItems;
+        set => _truckItems = value;
+    }
+
+    public int CupHolders {
+        get => _cupHolders;
+        set => _cupHolders = value;
+    }
+}
+
 // Example 2: Round Shapes w/ Abstraction
 public abstract class RoundShape {
     // Abstract method

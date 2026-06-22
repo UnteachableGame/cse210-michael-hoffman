@@ -4,6 +4,9 @@ internal class Program {
     private static void Main(string[] args) {
         bool isExperienceActive = true;
         
+        Breathing breathingActivity = new Breathing("", 0, 0);
+        Reflection reflectionActivity = new Reflection("", 0, 0, new List<string>());
+        Listing listingActivity = new Listing("", 0, 0, new List<string>());
         while (isExperienceActive) {
             Console.Clear();
         
@@ -17,10 +20,7 @@ internal class Program {
             String userOption = Console.ReadLine();
         
             Console.Clear();
-
-            Breathing breathingActivity = new Breathing("", 0, 0);
-            Reflection reflectionActivity = new Reflection("", 0, 0, new List<string>());
-            Listing listingActivity = new Listing("", 0, 0, new List<string>());
+            
             String instruction;
             switch (userOption) {
                 case "breathing" or "1":
@@ -28,7 +28,7 @@ internal class Program {
                                   "This activity will help you relax by walking your though your breathing " +
                                   "in and out slowly. Clear your mind and focus on your breathing.";
                 
-                    breathingActivity = new Breathing(instruction, 0, 0);
+                    breathingActivity = new Breathing(instruction, 0, -1);
                     breathingActivity.Begin();
                     break;
                 case "reflecting" or "2":
@@ -37,7 +37,7 @@ internal class Program {
                                   "strength and resilence. This will help you recognize the power you have and " +
                                   "how you can use it in other aspects of your life.";
 
-                    reflectionActivity = new Reflection(instruction, 0, 0, 
+                    reflectionActivity = new Reflection(instruction, 0, -1, 
                         new List<string>([
                             "Think of a time when a project or plan you worked hard on completely failed or fell apart. " +
                             "What was your immediate reaction, and how did you pivot or rebuild from that point?", 
@@ -59,7 +59,7 @@ internal class Program {
                                   "This activity will help you reflect on the good things in your life by having you" +
                                   "list as many things as you can in a certain area.";
 
-                    listingActivity = new Listing(instruction, 0, 0, 
+                    listingActivity = new Listing(instruction, 0, -1, 
                         new List<string>([
                         "List as many things as you can that used to feel incredibly intimidating or difficult to you, " +
                         "but now feel completely routine and easy.",
