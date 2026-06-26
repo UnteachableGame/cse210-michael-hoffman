@@ -2,25 +2,19 @@
 
 public class Word {
     private String _text;
-    private bool _visible;
 
     public Word(string text) {
         _text = text;
     }
 
-    public void DisplayText() {
-        // code
-    }
-
-    public void IsVisible() {
-        // code
-    }
-
-    public void Show() {
-        // code
-    }
-
     public void Hide() {
-        // code
+        foreach (char c in Text) {
+            Text = Text.Replace(c, '_');
+        }
+    }
+
+    public string Text {
+        get => _text;
+        set => _text = value;
     }
 }

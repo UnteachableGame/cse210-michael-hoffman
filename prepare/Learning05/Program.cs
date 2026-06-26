@@ -2,7 +2,6 @@ using Learning05;
 
 internal class Program {
     private static void Main(string[] args) {
-
         List<Shape> shapes = new List<Shape>();
         shapes.Add(new Shape("red"));
         shapes.Add(new Square("orange", 3.0f));
