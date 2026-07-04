@@ -58,7 +58,7 @@ public class Journal {
 
         while (!isValidFileName) {
             try {
-                foreach (var lines in File.ReadAllLines(fileName)) {
+                foreach (String lines in File.ReadAllLines(fileName)) {
                     String[] line = lines.Split(",");
                     Entry e = new Entry(line[1], line[2], line[0]);
                     Entries.Add(e);

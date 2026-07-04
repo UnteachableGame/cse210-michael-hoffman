@@ -159,3 +159,49 @@ public class Fox : Animal{
         Console.WriteLine($"{_name} says 'ring a ding ding dingeriering.'");
     }
 }
+
+public abstract class BaseAbility {
+    private string _name;
+    private int _cooldownSeconds;
+    
+    protected BaseAbility(string name, int cooldownSeconds) {
+        _name = name;
+        _cooldownSeconds = cooldownSeconds;
+    }
+    
+    public bool IsOnCooldown(String player) {
+        return false;
+    }
+    
+    public abstract void Activate(String player);
+    public string Name => _name;
+}
+
+public class FireballAbility : BaseAbility {
+    public FireballAbility() : base("Fireball", 10) { }
+    
+    public override void Activate(String player) {
+        player.LaunchFireBall();
+    }
+}
+
+public class LeapAbility : BaseAbility {
+    public LeapAbility() : base("Leap", 5) {
+    }
+    
+    public override void Activate(String player) {
+        player.Velocity = player.Location.Direction * 2;
+    }
+}
+
+public class AbilityManager {
+    private List<BaseAbility> _activeAbilities = new List<BaseAbility>();
+
+    public void RunAll(String player) {
+        foreach (BaseAbility ability in _activeAbilities) {
+            if (!ability.IsOnCooldown(player)) {
+                ability.Activate(player);
+            }
+        }
+    }
+}

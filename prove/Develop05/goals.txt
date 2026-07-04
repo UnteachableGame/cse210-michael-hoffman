@@ -1,0 +1,4 @@
+1100
+EternalGoal:get married,find wifey,1000
+SimpleGoal:touch michael,good boy,5,False
+ChecklistGoal:workout 2x per week,gym go,20,5,2,2
