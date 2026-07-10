@@ -181,7 +181,7 @@ public class FireballAbility : BaseAbility {
     public FireballAbility() : base("Fireball", 10) { }
     
     public override void Activate(String player) {
-        player.LaunchFireBall();
+        // player.LaunchFireBall();
     }
 }
 
@@ -190,7 +190,7 @@ public class LeapAbility : BaseAbility {
     }
     
     public override void Activate(String player) {
-        player.Velocity = player.Location.Direction * 2;
+        // player.Velocity = player.Location.Direction * 2;
     }
 }
 
